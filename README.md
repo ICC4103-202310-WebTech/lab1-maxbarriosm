@@ -194,7 +194,10 @@ $ curl -v http://www.example.com/bogus.html
 
 Describe the command output and explain how it differs from the previous command.
 
-[Write your answer about here]
+[En principio por el Trying 93.184.216.34:80... podemos decir que se esta intentando conectar al puerto 80, que es el estandar para HTTP y que tambien se utilizo arriba. Este request busca localizar el archivo 'bogus.html' pero lastimosamente no se encuentra, por lo que arroja esto: '< HTTP/1.1 404 Not Found'. Tambien el codigo proporciona diferentes encabezado como Cache-Control (Indica cuánto tiempo (en segundos) ha estado la respuesta en una caché intermedia antes de ser reenviada al cliente), Content-Type (Indica el tipo de contenido de la response. En este caso, el tipo de contenido es "text/html" y el conjunto de caracteres es "UTF-8"), Server (Indica el software de servidor web utilizado por el servidor. En este caso, el servidor utiliza ECS (mic/9A9D)), Vary (Indica los encabezados de solicitud que el servidor ha utilizado para seleccionar la respuesta que se ha devuelto. En este caso, el servidor ha utilizado el encabezado "Accept-Encoding"), entre otros.
+
+Diferencias:
+Ambos utilizan el método HTTP GET, la diferencia es que el primer request, solicita la pagina principal, mientras que el segundo, solicita un archivo especifico ('bogus.html') de la página. Tambien, en el segundo codigo, se puede ver que especifica explícitamente el esquema HTTP en la solicitud ('http://www.example.com/bogus.html') a diferencia del otro. Por último, la segunda request no encontro el archivo, por enden entrega '< HTTP/1.1 404 Not Found' a diferencia del primer request.]
 
 3. Enter the following command:
 
