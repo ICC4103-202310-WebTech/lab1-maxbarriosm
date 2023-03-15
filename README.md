@@ -184,7 +184,7 @@ $ curl -v www.example.com
 
 Now, describe what you see in the command output.
 
-[Podemos ver un output exitoso sobre una request HTTP GET a un sitio web. Esto se logra gracias a la conexión con el servido 'www.example.com'. La respuesta de este request no entrega un status code de 200 OK (HTTP/1.1 200 OK) lo que nos indica que se realizo correctamente. Los headers del codigo  proporcionan información, como la codificación de caracteres (< Content-Type: text/html; charset=UTF-8 ), la fecha de última modificación (< Last-Modified: Thu, 17 Oct 2019 07:18:26 GMT), la longitud del contenido (< Content-Length: 1256), entre otros. Por último, es importante decir que las líneas que comienzan con ">" representan la request enviada al servidor, mientras que las líneas que comienzan con "<" representan la respuesta recibida del servidor. ]
+[We can see a successful output on a GET request to a website through the IP address **93.184.216.34** using the HTTP protocol on port 80. This is achieved thanks to the connection with the server 'www.example.com'. The response to this request gives us a status code of 200 OK **(HTTP/1.1 200 OK)** which indicates that it was performed correctly. The headers of the code provide information such as the character encoding **(< Content-Type: text/html; charset=UTF-8 )**, the last modification date **(< Last-Modified: Thu, 17 Oct 2019 07:18:26 GMT)**, the length of the content **(< Content-Length: 1256)**, among others. Finally, it is important to mention that the lines that begin with **">"** represent the request sent to the server, while the lines that begin with **"<"** represent the response received from the server.]
 
 2. Now, enter the following command:
 
@@ -194,10 +194,10 @@ $ curl -v http://www.example.com/bogus.html
 
 Describe the command output and explain how it differs from the previous command.
 
-[En principio por el Trying 93.184.216.34:80... podemos decir que se esta intentando conectar al puerto 80, que es el estandar para HTTP y que tambien se utilizo arriba. Este request busca localizar el archivo 'bogus.html' pero lastimosamente no se encuentra, por lo que arroja esto: '< HTTP/1.1 404 Not Found'. Tambien el codigo proporciona diferentes encabezado como Cache-Control (Indica cuánto tiempo (en segundos) ha estado la respuesta en una caché intermedia antes de ser reenviada al cliente), Content-Type (Indica el tipo de contenido de la response. En este caso, el tipo de contenido es "text/html" y el conjunto de caracteres es "UTF-8"), Server (Indica el software de servidor web utilizado por el servidor. En este caso, el servidor utiliza ECS (mic/9A9D)), Vary (Indica los encabezados de solicitud que el servidor ha utilizado para seleccionar la respuesta que se ha devuelto. En este caso, el servidor ha utilizado el encabezado "Accept-Encoding"), entre otros.
+[Intially, from the Trying 93.184.216.34:80... we can tell that is trying to connect to the port 80 of the IP address _93.184.216.34_, which is also used above, as it is the same website. This request is looking for the file _'bogus.html'_ but it is not found on the page, so it returns _**'< HTTP/1.1 404 Not Found'**_. Additionally, the code provides different headers such as **Cache-Control** (indicates how long (in seconds) the response has been in an intermediate cache before being forwarded to the client), **Content-Type** (indicates the content type of the response. In this case, the content type is "text/html" and the character set is "UTF-8"), **Server** (indicates the web server software used by the server. In this case, the server uses ECS (mic/9A9D)), **Vary** (indicates the request headers that the server has used to select the response that has been returned. In this case, the server has used the "Accept-Encoding" header), among others.
 
-Diferencias:
-Ambos utilizan el método HTTP GET, la diferencia es que el primer request, solicita la pagina principal, mientras que el segundo, solicita un archivo especifico ('bogus.html') de la página. Tambien, en el segundo codigo, se puede ver que especifica explícitamente el esquema HTTP en la solicitud ('http://www.example.com/bogus.html') a diferencia del otro. Por último, la segunda request no encontro el archivo, por enden entrega '< HTTP/1.1 404 Not Found' a diferencia del primer request.]
+Differences:
+Both make a GET request, the difference is that the first request call the main page, while the second, requests a specific file ('bogus.html') from the page. Also, in the second code, it can be seen that it explicitly specifies HTTP in the request ('http://www.example.com/bogus.html') unlike the other. Finally, the second request did not find the file, hence it returns '< HTTP/1.1 404 Not Found', unlike the first request.]
 
 3. Enter the following command:
 
@@ -207,10 +207,10 @@ $ curl -vi http://stackabuse.com
 
 Describe the meaning of the server's response in this case.
 
-[Write your answer about here]
+[Again, we can see a response from an GET request using the HTTP protocol. The server (http://stackabuse.com) respond with a _**status code**_of 301 (< HTTP/1.1 301 Moved Permanently)_and a _**Location**_(Location: https://stackabuse.com/) header that indicates the new location of the requested resource and we can tell that it use the HTTPS protocol. The response also includes various other headers such a **Date, Transfer-Encoding, Connection, Cache-Control, Expires, and Server_**  ]
 
 4. Enter the following command:
-
+header that indicates the new location of the requested resource and we can tell that it use the HTTPS protocol. The response also includes various other headers such a
 ```sh
 $ curl -viL http://stackabuse.com > output.txt
 ```
