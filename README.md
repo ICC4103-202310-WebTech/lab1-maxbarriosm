@@ -184,7 +184,7 @@ $ curl -v www.example.com
 
 Now, describe what you see in the command output.
 
-[Write your answer about here]
+[Podemos ver un output exitoso sobre una request HTTP GET a un sitio web. Esto se logra gracias a la conexión con el servido 'www.example.com'. La respuesta de este request no entrega un status code de 200 OK (HTTP/1.1 200 OK) lo que nos indica que se realizo correctamente. Los headers del codigo  proporcionan información, como la codificación de caracteres (< Content-Type: text/html; charset=UTF-8 ), la fecha de última modificación (< Last-Modified: Thu, 17 Oct 2019 07:18:26 GMT), la longitud del contenido (< Content-Length: 1256), entre otros. Por último, es importante decir que las líneas que comienzan con ">" representan la request enviada al servidor, mientras que las líneas que comienzan con "<" representan la respuesta recibida del servidor. ]
 
 2. Now, enter the following command:
 
