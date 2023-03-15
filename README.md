@@ -217,7 +217,11 @@ $ curl -viL http://stackabuse.com > output.txt
 
 This command creates a text file called `output.txt` which you can open with any text editor. Open the file, analyze it, and describe what client-server interactions ocurred in this case, considering the HTTP requests and responses.
 
-[Write your answer about here]
+[is a response of an HTTP request made to the URL "http://stackabuse.com". In the output.txt, It looks divided in two parts. The first part is the response header, which includes information about the server, the date and time the response was sent, the content type, cache-control directives, and other metadata. The second part is the response body, which is the actual content of the page requested (http://stackabuse.com).
+
+About the client-server interactons, the server responded with an HTTP status code of **301**, indicating that the requested resource has been permanently moved (_**< HTTP/1.1 301 Moved Permanently**_) to a different location, which is specified in the Location header (_**< Location: https://stackabuse.com/**_) field of the response. The client then followed the redirection to the new location, changing the port 80 to 433 (_* Connected to stackabuse.com (104.26.8.38) port 443 (#1)_). Here in the new URL, the client made another HTTP request using HTTP/2 protocol, and the server responded with an HTTP status code of **200** (_< HTTP/2 200_), indicating that the request was successful. Then, the server sent the requested resource, which is an HTML document (_< content-type: text/html; charset=utf-8_), in the response body.
+
+Also is good to know that this is possible because the _**curl -viL**_. Where the -L tells curl to follow any redirects.]
 
 After you respond the questions above, do not forget to commit changes made to this file, and push your repository to GitHub:
 
